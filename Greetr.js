@@ -23,7 +23,9 @@
       return new Greetr.init(firstName, lastName, language);
   };
 
-  //
+  // Greetr.init prototype points to this empty funciton.
+  // We add all our methods and properties here.
+   
   Greetr.prototype = {};
 
   // This is the actual Constructor Funciton being returned.
@@ -53,7 +55,7 @@
 
   // This will expose Greetr to the Global Object.
   // So, on the Global Object, the two names 'G$' and 'Greetr' will point to the 'var Greetr = (){...}' value.
-  
+
   global.Greetr = global.G$ = Greetr;
 
 }(window, jQuery));
