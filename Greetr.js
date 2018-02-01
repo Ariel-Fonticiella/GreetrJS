@@ -1,7 +1,6 @@
 /*******************************************************************************
   First, we create a new execution context for our entire Framework. All of the
-  variables that are declared there are safe. We're only exposing, on the Global
-  Object, what we want. We do this by creating "Safe Code" by structuring an IIFE around the code that we wrote.
+  variables that are declared there are safe. We're only exposing what we want on the Global Object. We do this by creating "Safe Code" by structuring an IIFE around the code that we wrote.
 
   The first thing that happens is that the IIFE executes, creating a new Execution Context giving us the variables we need to run. And so now the whole greeter is safe inside of the IIFE and ready to be reused by anybody.
 *******************************************************************************/
@@ -25,7 +24,7 @@
 
   // Greetr.init prototype points to this empty funciton.
   // We add all our methods and properties here.
-   
+
   Greetr.prototype = {};
 
   // This is the actual Constructor Funciton being returned.
