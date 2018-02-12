@@ -17,7 +17,7 @@
 
       // 'return new Greetr.init' will use a function constructor to generate
       // the object. That way you don't have to always setup the object with
-      // the 'new' keyword.
+      // the 'new' keyword. 
 
       return new Greetr.init(firstName, lastName, language);
   };
