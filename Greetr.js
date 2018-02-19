@@ -57,6 +57,56 @@
         // if indexOf returns -1, lang isn't found. Otherwise return a 0 or a 1
     },
 
+    greeting: function() {
+        return greetings[this.language] + ' ' + this.firstName + '!';
+          // This will grab the 'greetings' var based on the language chosen.
+          // the bracket opperator [this.language] will grab whatever is set up
+          // as the language in the object.
+    },
+
+    formalGreeting: function() {
+        return formalGreetings[this.language] + ', ' + this.fullName();
+        // This will find the 'formalGreetings' object and grab it's properties
+        // by name, using the chosen language.
+    },
+
+/* To keep from always having to call 'greeting()' or 'formalGreeting()', with the 'greet' method, you can just pass whether or not you want the greeting to be formal */
+    greet: function(formal){
+          let msg;
+
+          if (formal) {
+            // if undefined or null it will be coerced to 'false'
+            msg = this.formalGreeting();
+          } else {
+            msg = this.greeting();
+          }
+
+          if (console) {
+              console.log(msg);
+          }
+
+          return this;
+            // 'this' refers to the calling object at execution time and makes
+            // the method chainable. Meaning you can call the object and then
+            // the method and then dot another method.
+    },
+
+    log: function() {
+        if (console) {
+            console.log(logMessages[this.language] + ': ' + this.fullName());
+        }
+        return this;
+    },
+
+    setLang: function(lang) {
+        this.language = lang;
+          // Update my object with the 'language' passed in.
+        this.validate();
+          // Then call 'validate' to make sure that it's valid.
+        return this;
+          // We return 'this' to make it chainable.
+    }
+
   };
 
   Greetr.init = function(firstName, lastName, language) {
