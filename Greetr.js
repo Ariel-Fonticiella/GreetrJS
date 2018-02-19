@@ -70,12 +70,12 @@
         // by name, using the chosen language.
     },
 
-/* To keep from always having to call 'greeting()' or 'formalGreeting()', with the 'greet' method, you can just pass whether or not you want the greeting to be formal */
+    /* To keep from always having to call 'greeting()' or 'formalGreeting()', with the 'greet' method, you can just pass whether or not you want the greeting to be formal */
     greet: function(formal){
           let msg;
 
           if (formal) {
-            // if undefined or null it will be coerced to 'false'
+            // if 'undefined' or 'null' it will be coerced to 'false'.
             msg = this.formalGreeting();
           } else {
             msg = this.greeting();
@@ -107,7 +107,7 @@
           // We return 'this' to make it chainable.
     }
 
-  };
+  }; // Greetr.prototype -- END
 
   Greetr.init = function(firstName, lastName, language) {
       // This is the actual constructor funciton object being returned.
@@ -124,7 +124,7 @@
         // properties and sets their value's if you pass something into the
         // funciton construct, otherwise it will set some defaults.
 
-  };
+  };// Greetr.init -- END
 
   Greetr.init.prototype = Greetr.prototype;
     // Any objects created with the Greetr.init function will point to
@@ -137,4 +137,4 @@
     // So, on the Global Object, the two names '.G$' and '.Greetr' will point to
     // the 'var Greetr = function(){...}' value.
 
-}(window, jQuery)); // function(global, $)
+}(window, jQuery)); // function(global, $) -- END
