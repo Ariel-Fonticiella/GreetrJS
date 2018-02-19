@@ -1,9 +1,11 @@
 /*******************************************************************************
-  Greeter is a reusable library/framework that is used for, you guessed it, Greetings!
+  Greetr is a reusable library/framework for, you guessed it, Greetings!
 
-  When given a first name, last name, and optional language, it will generate formal and informal greetings.
+  Greetr takes three parameters: firstName, lastName, and (optional) language. it will generate formal and informal greetings.
 
-  Greeter supports: English and Spanish languages, jQuery.
+  When given a first name, last name, and optional language, Greetr will generate a formal and informal greetings in a specified language (English or Spanish).
+
+  Greeter supports: jQuery
 *******************************************************************************/
 
 // First, we create a new execution context for our entire Framework.
@@ -105,7 +107,33 @@
           // Then call 'validate' to make sure that it's valid.
         return this;
           // We return 'this' to make it chainable.
+    },
+
+    HTMLGreeting: function(selector, formal) {
+        if (!$) {
+            throw 'jQuery not loaded';
+            // If we don't have jQuery, throw error: 'jQuery no loaded'
+        }
+
+        if (!selector){
+          throw 'Missing jQuery selector';
+          // If we don't have a selector, throw error: 'Missing jQuery selector';
+        }
+
+        let msg;
+        if (formal) {
+            msg = this.formalGreeting();
+        } else {
+            msg = this.greeting();
+        }
+        // Depending on whether you pass a 'formal' parameter or not, this is
+        // the string it will use.
+
+        $(selector).html(msg);
+
+        return this;
     }
+
 
   }; // Greetr.prototype -- END
 
